@@ -23,7 +23,7 @@ def bwd_hook(tensor, hook):
 
 hooked_model.hook_dict["blocks.6.hook_resid_mid"].add_hook(fwd_hook, dir="fwd")
 hooked_model.hook_dict["blocks.6.hook_resid_mid"].add_hook(fwd_hook2, dir="fwd")
-hooked_model.hook_dict["blocks.6.hook_resid_mid"].add_hook(bwd_hook, dir="bwd")
+hooked_model.hook_dict["blocks.6.hook_resid_mid"].add_hook(bwd_hook, dir="bwd")    # results don't change if we add bwd_hook first
 
 batch_tokens = hooked_model.to_tokens(["hello, how are you?"])
 
